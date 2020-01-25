@@ -1,16 +1,37 @@
-# whatsapp
+<h1 align="center">Whatsapp Redesign UI</h1>
 
-A new Flutter project.
+## Objective
+Practise: flutter knowledges, ability to follow a pre-defined design and how to solve problems during development.
 
-## Getting Started
+<!-- ## Prints
+<p align="center">
+  <img width="200" src="print.project.screen"/>
+</p> -->
 
-This project is a starting point for a Flutter application.
+<!-- ## Knowledges
+>Explain or list what was used to create this project. -->
 
-A few resources to get you started if this is your first Flutter project:
+## How to use
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+# Clone this repository
+$ git clone https://github.com/feMoraes0/whatsapp-redesign-ui.git
+
+# Go into the repository
+$ cd whatsapp-redesign-ui
+
+# Install dependencies
+$ flutter packages get
+
+# Run the app
+$ flutter run
+```
+
+## Credits
+ - [Design at Behance - Igor S.](https://www.behance.net/gallery/72309913/WhatsApp-Redesign)
+
+## Contact
+  - <a target="_blank" href="https://www.linkedin.com/in/fernando-moraes-48a26916a/">LinkedIn</a>
+  - <a target="_blank" href="mailto:fernandomoraes.lopes@gmail.com">E-mail</a>
