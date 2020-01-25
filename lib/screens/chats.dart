@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:whatsapp/components/status_bar.dart';
 
 class ChatsScreen extends StatelessWidget {
   @override
@@ -64,6 +65,7 @@ class ChatsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            StatusBar(),
           ],
         ),
       ),
