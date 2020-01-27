@@ -3,26 +3,25 @@ import 'dart:convert';
 import "package:flutter/material.dart";
 
 class StatusBar extends StatefulWidget {
- 
   @override
   _StatusBarState createState() => _StatusBarState();
 }
 
 class _StatusBarState extends State<StatusBar> {
-
   List status = [];
+  Color primaryColor;
 
-  Widget add({@required color}) {
+  Widget add() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         children: <Widget>[
           Container(
-            width: 58.0,
-            height: 58.0,
+            width: 62.0,
+            height: 62.0,
             margin: const EdgeInsets.symmetric(vertical: 5.0),
             decoration: BoxDecoration(
-              color: color,
+              color: this.primaryColor,
               borderRadius: BorderRadius.circular(100.0),
             ),
             child: Icon(
@@ -54,15 +53,27 @@ class _StatusBarState extends State<StatusBar> {
           Stack(
             children: <Widget>[
               Container(
-                width: 58.0,
-                height: 58.0,
+                height: 62.0,
+                width: 62.0,
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
+                padding: const EdgeInsets.all(2.0),
                 decoration: BoxDecoration(
-                  color: Colors.green,
+                  color: this.primaryColor,
                   borderRadius: BorderRadius.circular(100.0),
-                  image: DecorationImage(
-                    image: AssetImage(statusImg),
-                    fit: BoxFit.cover,
+                ),
+                child: Container(
+                  width: 58.0,
+                  height: 58.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(100.0),
+                    image: DecorationImage(
+                      image: AssetImage(statusImg),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -75,7 +86,10 @@ class _StatusBarState extends State<StatusBar> {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(100.0),
-                    border: Border.all(color: Colors.white, width: 3.0,),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2.0,
+                    ),
                     image: DecorationImage(
                       image: AssetImage(userImg),
                       fit: BoxFit.cover,
@@ -97,34 +111,32 @@ class _StatusBarState extends State<StatusBar> {
     );
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    Size size = MediaQuery.of(context).size;
 
-    if(this.status.length == 0) {
-      DefaultAssetBundle.of(context).loadString("assets/status.json").then((stringData) {
+    if (this.status.length == 0) {
+      DefaultAssetBundle.of(context)
+          .loadString("assets/status.json")
+          .then((stringData) {
         setState(() {
           this.status = json.decode(stringData);
+          this.primaryColor = theme.primaryColor;
         });
       });
     }
 
-    Size size = MediaQuery.of(context).size;
-    ThemeData theme = Theme.of(context);
-    
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         width: size.width,
-        height: 108.0,
+        height: 112.0,
         child: ListView.builder(
           itemCount: this.status.length + 1,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, position) {
             if (position == 0) {
-              return this.add(
-                color: theme.primaryColor,
-              );
+              return this.add();
             } else {
               Map<String, dynamic> item = this.status[position - 1];
               return this.userStatus(
