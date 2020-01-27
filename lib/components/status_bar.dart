@@ -13,7 +13,7 @@ class _StatusBarState extends State<StatusBar> {
 
   Widget add() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: <Widget>[
           Container(
@@ -47,7 +47,7 @@ class _StatusBarState extends State<StatusBar> {
     @required String statusImg,
   }) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: <Widget>[
           Stack(
