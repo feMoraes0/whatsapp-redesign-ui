@@ -36,7 +36,10 @@ class ChatsScreen extends StatelessWidget {
                           backgroundColor: theme.primaryColor,
                           child: Text(
                             "1",
-                            style: TextStyle(fontSize: 14.0, color: Colors.white),
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white,
+                            ),
                           ),
                         )
                       ],
@@ -56,8 +59,11 @@ class ChatsScreen extends StatelessWidget {
                           height: 25.0,
                           decoration: BoxDecoration(
                             color: Colors.redAccent,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(100.0)),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                100.0,
+                              ),
+                            ),
                           ),
                         ),
                       ],

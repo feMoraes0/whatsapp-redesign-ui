@@ -1,87 +1,25 @@
+import 'dart:convert';
+
 import "package:flutter/material.dart";
 
-class StatusBar extends StatelessWidget {
-  final List status = [
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-    {
-      "name_user": "Pedro",
-      "img_user":
-          "https://assets3.thrillist.com/v1/image/2817820/size/tmg-article_tall;jpeg_quality=20.jpg",
-      "img_status":
-          "https://img.huffingtonpost.com/asset/59e8f7b71500009e0d7467cc.jpeg",
-    },
-  ];
+class StatusBar extends StatefulWidget {
+ 
+  @override
+  _StatusBarState createState() => _StatusBarState();
+}
+
+class _StatusBarState extends State<StatusBar> {
+
+  List status = [];
 
   Widget add({@required color}) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15.0),
+      margin: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         children: <Widget>[
           Container(
-            width: 50.0,
-            height: 50.0,
+            width: 58.0,
+            height: 58.0,
             margin: const EdgeInsets.symmetric(vertical: 5.0),
             decoration: BoxDecoration(
               color: color,
@@ -110,20 +48,20 @@ class StatusBar extends StatelessWidget {
     @required String statusImg,
   }) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15.0),
+      margin: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         children: <Widget>[
           Stack(
             children: <Widget>[
               Container(
-                width: 50.0,
-                height: 50.0,
+                width: 58.0,
+                height: 58.0,
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
                 decoration: BoxDecoration(
                   color: Colors.green,
                   borderRadius: BorderRadius.circular(100.0),
                   image: DecorationImage(
-                    image: NetworkImage(statusImg),
+                    image: AssetImage(statusImg),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -132,14 +70,14 @@ class StatusBar extends StatelessWidget {
                 bottom: 0,
                 right: 0,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 28.0,
+                  height: 28.0,
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(100.0),
-                    border: Border.all(color: Colors.white, width: 2.0,),
+                    border: Border.all(color: Colors.white, width: 3.0,),
                     image: DecorationImage(
-                      image: NetworkImage(userImg),
+                      image: AssetImage(userImg),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -159,14 +97,26 @@ class StatusBar extends StatelessWidget {
     );
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+
+    if(this.status.length == 0) {
+      DefaultAssetBundle.of(context).loadString("assets/status.json").then((stringData) {
+        setState(() {
+          this.status = json.decode(stringData);
+        });
+      });
+    }
+
     Size size = MediaQuery.of(context).size;
     ThemeData theme = Theme.of(context);
+    
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         width: size.width,
-        height: 100.0,
+        height: 108.0,
         child: ListView.builder(
           itemCount: this.status.length + 1,
           scrollDirection: Axis.horizontal,
@@ -176,7 +126,7 @@ class StatusBar extends StatelessWidget {
                 color: theme.primaryColor,
               );
             } else {
-              Map<String, String> item = this.status[position - 1];
+              Map<String, dynamic> item = this.status[position - 1];
               return this.userStatus(
                 userName: item["name_user"],
                 userImg: item["img_user"],
