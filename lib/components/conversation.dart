@@ -2,16 +2,8 @@ import 'dart:convert';
 
 import "package:flutter/material.dart";
 
-class Conversation extends StatefulWidget {
-  @override
-  _ConversationState createState() => _ConversationState();
-}
-
-class _ConversationState extends State<Conversation> {
-  List pinned = [];
-  List chats = [];
-  Color primaryColor;
-
+class Conversation extends StatelessWidget {
+  
   Widget headerList({@required String text, @required IconData icon}) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
@@ -163,15 +155,28 @@ class _ConversationState extends State<Conversation> {
     );
   }
 
-
-  Future<List<Widget>> buildList(ThemeData theme) async {
+  Future<List<Widget>> buildList(ThemeData theme, BuildContext context) async {
     List<Widget> currentList = [];
+    List pinned = [];
+    List chats = [];
+
+    await DefaultAssetBundle.of(context).loadString("assets/pinned.json").then(
+      (stringData) {
+        pinned = json.decode(stringData);
+      },
+    );
+    await DefaultAssetBundle.of(context).loadString("assets/chats.json").then(
+      (stringData) {
+        chats = json.decode(stringData);
+      },
+    );
+
     currentList.add(this.headerList(text: "Pinned", icon: Icons.golf_course));
-    for (Map element in this.pinned) {
+    for (Map element in pinned) {
       currentList.add(this.listConversation(element, theme));
     }
-    currentList.add(this.headerList(text: "AllChats", icon: Icons.chat_bubble));
-    for (Map element in this.chats) {
+    currentList.add(this.headerList(text: "All Chats", icon: Icons.chat_bubble));
+    for (Map element in chats) {
       currentList.add(this.listConversation(element, theme));
     }
     return currentList;
@@ -181,39 +186,26 @@ class _ConversationState extends State<Conversation> {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
 
-    if (this.pinned.length == 0) {
-      DefaultAssetBundle.of(context)
-          .loadString("assets/pinned.json")
-          .then((stringData) {
-        setState(() {
-          this.pinned = json.decode(stringData);
-        });
-      });
-    }
-
-    if (this.chats.length == 0) {
-      DefaultAssetBundle.of(context)
-          .loadString("assets/chats.json")
-          .then((stringData) {
-        setState(() {
-          this.chats = json.decode(stringData);
-        });
-      });
-    }
-
     return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 15.0,
-        horizontal: 5.0,
+      padding: const EdgeInsets.only(
+        top: 15.0,
+        left: 5.0,
+        right: 5.0,
       ),
       child: FutureBuilder(
-        future: this.buildList(theme),
+        future: this.buildList(theme, context),
         builder: (context, snapshot) {
-          return ListView(
-            children: snapshot.data,
+          if (snapshot.connectionState == ConnectionState.done)
+            return ListView(
+              children: snapshot.data,
+            );
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: theme.primaryColor,
+            ),
           );
         },
-      )
+      ),
     );
   }
 }
