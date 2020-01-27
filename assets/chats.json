@@ -2,49 +2,37 @@
   {
     "user_name": "Linus",
     "user_img": "assets/people/people-010.jpg",
-    "date": "Mon",
+    "date": "Jul 8",
     "unread": "0"
   },
   {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
+    "user_name": "Mark",
+    "user_img": "assets/people/people-007.jpg",
+    "date": "Jul 8",
+    "unread": "0"
   },
   {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
+    "user_name": "Tanenbaum",
+    "user_img": "assets/people/people-009.jpg",
+    "date": "Jul 8",
+    "unread": "0"
   },
   {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
+    "user_name": "Dotcom",
+    "user_img": "assets/people/people-011.jpeg",
+    "date": "Jul 8",
+    "unread": "0"
   },
   {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
-  },
-  {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
-  },
-  {
-    "user_name": "Jeff",
-    "user_img": "assets/people/people-008.jpg",
-    "date": "Sun",
-    "unread": "12"
+    "user_name": "McAfee",
+    "user_img": "assets/people/people-012.jpg",
+    "date": "Jul 8",
+    "unread": "0"
   },
   {
     "user_name": "Elon",
     "user_img": "assets/people/people-004.jpg",
-    "date": "Tue",
+    "date": "Jul 8",
     "unread": "0"
   }
 ]
