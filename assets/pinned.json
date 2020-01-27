@@ -2,16 +2,19 @@
   {
     "user_name": "Linus",
     "user_img": "assets/people/people-010.jpg",
-    "date": "Mon"
+    "date": "Mon",
+    "unread": "0"
   },
   {
     "user_name": "Jeff",
     "user_img": "assets/people/people-008.jpg",
-    "date": "Sun"
+    "date": "Sun",
+    "unread": "12"
   },
   {
     "user_name": "Elon",
     "user_img": "assets/people/people-004.jpg",
-    "date": "Tue"
+    "date": "Tue",
+    "unread": "0"
   }
 ]

@@ -67,7 +67,7 @@ class _PinnedChatsState extends State<PinnedChats> {
                 Map<String, dynamic> element = this.itens[index];
                 return Container(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 10.0,
+                    vertical: 5.0,
                     horizontal: 15.0,
                   ),
                   decoration: BoxDecoration(
@@ -79,58 +79,107 @@ class _PinnedChatsState extends State<PinnedChats> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        width: 55,
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100.0),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                element["user_img"],
-                              ),
-                              fit: BoxFit.cover,
-                            )),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Stack(
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5.0),
-                            child: Text(
-                              element["user_name"],
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600,
+                          Container(
+                            width: 52,
+                            height: 52,
+                            margin: const EdgeInsets.symmetric(
+                              vertical: 5.0,
+                              horizontal: 5.0,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.0),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  element["user_img"],
+                                ),
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          Text(
-                            "Maecenas sed elementum augue.",
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
+                          (element["unread"] != "0")
+                              ? Positioned(
+                                  top: -2,
+                                  right: -2,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(100.0),
+                                      border: Border.all(
+                                        color: Colors.white,
+                                        width: 3.0,
+                                      ),
+                                    ),
+                                    child: CircleAvatar(
+                                      radius: 12.0,
+                                      backgroundColor: theme.primaryColor,
+                                      child: Text(
+                                        element["unread"],
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(),
                         ],
                       ),
-                      Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5.0),
-                            child: Text(
-                              element["date"],
-                              style: TextStyle(
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w400,
+                      SizedBox(
+                        height: 55.0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 5.0),
+                              child: Text(
+                                element["user_name"],
+                                style: TextStyle(
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: (element["unread"] != "0")
+                                      ? theme.primaryColor
+                                      : Colors.black,
+                                ),
                               ),
                             ),
-                          ),
-                          Icon(
-                            Icons.golf_course,
-                          ),
-                        ],
+                            Text(
+                              "Maecenas sed elementum augue.",
+                              style: TextStyle(
+                                fontSize: 17.0,
+                                fontWeight: (element["unread"] != "0")
+                                    ? FontWeight.w700
+                                    : FontWeight.w400,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 55.0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 5.0),
+                              child: Text(
+                                element["date"],
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Icon(
+                              Icons.golf_course,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),
