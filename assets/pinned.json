@@ -1,0 +1,17 @@
+[
+  {
+    "user_name": "Linus",
+    "user_img": "assets/people/people-010.jpg",
+    "date": "Mon"
+  },
+  {
+    "user_name": "Jeff",
+    "user_img": "assets/people/people-008.jpg",
+    "date": "Sun"
+  },
+  {
+    "user_name": "Elon",
+    "user_img": "assets/people/people-004.jpg",
+    "date": "Tue"
+  }
+]

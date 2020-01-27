@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:whatsapp/components/pinned_chats.dart';
 import 'package:whatsapp/components/status_bar.dart';
 
 class ChatsScreen extends StatelessWidget {
@@ -73,6 +74,9 @@ class ChatsScreen extends StatelessWidget {
               ),
             ),
             StatusBar(),
+            Expanded(
+              child: PinnedChats(),
+            ),
           ],
         ),
       ),
