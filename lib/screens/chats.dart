@@ -5,6 +5,7 @@ class ChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -32,7 +33,7 @@ class ChatsScreen extends StatelessWidget {
                         ),
                         CircleAvatar(
                           radius: 10.0,
-                          backgroundColor: Colors.green,
+                          backgroundColor: theme.primaryColor,
                           child: Text(
                             "1",
                             style: TextStyle(fontSize: 14.0, color: Colors.white),

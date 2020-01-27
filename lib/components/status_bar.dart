@@ -74,7 +74,7 @@ class StatusBar extends StatelessWidget {
     },
   ];
 
-  Widget add() {
+  Widget add({@required color}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
@@ -84,7 +84,7 @@ class StatusBar extends StatelessWidget {
             height: 50.0,
             margin: const EdgeInsets.symmetric(vertical: 5.0),
             decoration: BoxDecoration(
-              color: Colors.green,
+              color: color,
               borderRadius: BorderRadius.circular(100.0),
             ),
             child: Icon(
@@ -162,6 +162,7 @@ class StatusBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         width: size.width,
@@ -171,7 +172,9 @@ class StatusBar extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, position) {
             if (position == 0) {
-              return this.add();
+              return this.add(
+                color: theme.primaryColor,
+              );
             } else {
               Map<String, String> item = this.status[position - 1];
               return this.userStatus(
