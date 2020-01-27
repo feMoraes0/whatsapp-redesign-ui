@@ -3,7 +3,6 @@ import 'dart:convert';
 import "package:flutter/material.dart";
 
 class Conversation extends StatelessWidget {
-  
   Widget headerList({@required String text, @required IconData icon}) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
@@ -34,7 +33,8 @@ class Conversation extends StatelessWidget {
     );
   }
 
-  Widget listConversation(Map element, ThemeData theme) {
+  Widget listConversation(
+      {@required Map element, @required ThemeData theme, bool pinned = false}) {
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 5.0,
@@ -144,9 +144,9 @@ class Conversation extends StatelessWidget {
                     ),
                   ),
                 ),
-                Icon(
+                (pinned) ? Icon(
                   Icons.golf_course,
-                ),
+                ) : Container(),
               ],
             ),
           )
@@ -171,13 +171,30 @@ class Conversation extends StatelessWidget {
       },
     );
 
-    currentList.add(this.headerList(text: "Pinned", icon: Icons.golf_course));
+    currentList.add(
+      this.headerList(
+        text: "Pinned",
+        icon: Icons.golf_course,
+      ),
+    );
     for (Map element in pinned) {
-      currentList.add(this.listConversation(element, theme));
+      currentList.add(this.listConversation(
+        element: element,
+        theme: theme,
+        pinned: true,
+      ));
     }
-    currentList.add(this.headerList(text: "All Chats", icon: Icons.chat_bubble));
+    currentList.add(
+      this.headerList(
+        text: "All Chats",
+        icon: Icons.chat_bubble,
+      ),
+    );
     for (Map element in chats) {
-      currentList.add(this.listConversation(element, theme));
+      currentList.add(this.listConversation(
+        element: element,
+        theme: theme,
+      ));
     }
     return currentList;
   }
