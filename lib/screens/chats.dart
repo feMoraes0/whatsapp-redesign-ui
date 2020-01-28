@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:whatsapp/components/conversation.dart';
 import 'package:whatsapp/components/status_bar.dart';
@@ -48,8 +49,8 @@ class ChatsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(Icons.camera_alt),
-                Icon(Icons.search),
+                Icon(FontAwesomeIcons.camera, size: 20.0,),
+                Icon(FontAwesomeIcons.search, size: 20.0,),
                 Container(
                   width: 25.0,
                   height: 25.0,

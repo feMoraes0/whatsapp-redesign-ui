@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dotted_border/dotted_border.dart';
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StatusBar extends StatefulWidget {
@@ -27,7 +28,8 @@ class _StatusBarState extends State<StatusBar> {
               borderRadius: BorderRadius.circular(100.0),
             ),
             child: Icon(
-              Icons.add,
+              FontAwesomeIcons.plus,
+              size: 18.0,
               color: Colors.white,
             ),
           ),

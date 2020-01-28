@@ -1,10 +1,15 @@
 import 'dart:convert';
 
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Conversation extends StatelessWidget {
-  Widget headerList({@required String text, @required IconData icon, bool collapse = false}) {
+  Widget headerList({
+    @required String text,
+    @required IconData icon,
+    bool collapse = false,
+  }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
         15.0,
@@ -16,6 +21,8 @@ class Conversation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -23,25 +30,34 @@ class Conversation extends StatelessWidget {
                 ),
                 child: Icon(
                   icon,
+                  size: 21.0,
                 ),
               ),
               Text(
                 text,
                 style: GoogleFonts.istokWeb(
-                  fontSize: 16.0,
+                  fontSize: 17.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
-          (collapse) ? Icon(Icons.keyboard_arrow_up, size: 24.0,) : Container(),
+          (collapse)
+              ? Icon(
+                  FontAwesomeIcons.chevronUp,
+                  size: 16.0,
+                )
+              : Container(),
         ],
       ),
     );
   }
 
-  Widget listConversation(
-      {@required Map element, @required ThemeData theme, bool pinned = false}) {
+  Widget listConversation({
+    @required Map element,
+    @required ThemeData theme,
+    bool pinned = false,
+  }) {
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 5.0,
@@ -136,7 +152,7 @@ class Conversation extends StatelessWidget {
           SizedBox(
             height: 55.0,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5.0),
@@ -150,7 +166,8 @@ class Conversation extends StatelessWidget {
                 ),
                 (pinned)
                     ? Icon(
-                        Icons.golf_course,
+                        FontAwesomeIcons.thumbtack,
+                        size: 18.0,
                       )
                     : Container(),
               ],
@@ -180,7 +197,7 @@ class Conversation extends StatelessWidget {
     currentList.add(
       this.headerList(
         text: "Pinned",
-        icon: Icons.golf_course,
+        icon: FontAwesomeIcons.thumbtack,
       ),
     );
     for (Map element in pinned) {
@@ -193,7 +210,7 @@ class Conversation extends StatelessWidget {
     currentList.add(
       this.headerList(
         text: "All Chats",
-        icon: Icons.chat,
+        icon: FontAwesomeIcons.commentDots,
         collapse: true,
       ),
     );
