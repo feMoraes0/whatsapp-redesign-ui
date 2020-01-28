@@ -143,7 +143,7 @@ class ChatsScreen extends StatelessWidget {
                     ),
                   ),
                   CircleAvatar(
-                    backgroundColor: Colors.yellowAccent,
+                    backgroundColor: Color.fromRGBO(247, 255, 0, 1.0,),
                     radius: 30.0,
                     child: Icon(
                       Icons.chat,
