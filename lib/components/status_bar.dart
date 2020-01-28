@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dotted_border/dotted_border.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,8 +49,11 @@ class _StatusBarState extends State<StatusBar> {
   Widget userStatus({
     @required String userName,
     @required String userImg,
-    @required String statusImg,
+    @required List statusImg,
   }) {
+    double radius = 195.0;
+    double quantStatus = (radius - (10 * (statusImg.length - 1))) / statusImg.length;
+    
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
@@ -61,23 +65,24 @@ class _StatusBarState extends State<StatusBar> {
                 height: 62.0,
                 width: 62.0,
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
-                padding: const EdgeInsets.all(2.0),
-                decoration: BoxDecoration(
+                child: DottedBorder(
+                  borderType: BorderType.Circle,
                   color: this.primaryColor,
-                  borderRadius: BorderRadius.circular(100.0),
-                ),
-                child: Container(
-                  width: 58.0,
-                  height: 58.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(100.0),
-                    image: DecorationImage(
-                      image: AssetImage(statusImg),
-                      fit: BoxFit.cover,
+                  strokeWidth: 3.0,
+                  dashPattern: [quantStatus, 5],
+                  child: Container(
+                    width: 60.0,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 3.0,
+                      ),
+                      borderRadius: BorderRadius.circular(100.0),
+                      image: DecorationImage(
+                        image: AssetImage(statusImg[0]),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -93,7 +98,7 @@ class _StatusBarState extends State<StatusBar> {
                     borderRadius: BorderRadius.circular(100.0),
                     border: Border.all(
                       color: Colors.white,
-                      width: 2.0,
+                      width: 3.0,
                     ),
                     image: DecorationImage(
                       image: AssetImage(userImg),

@@ -2,36 +2,54 @@
   {
     "name_user": "Bill",
     "img_user": "assets/people/people-001.jpg",
-    "img_status": "assets/images/image-001.jpg"
+    "img_status": [
+      "assets/images/image-001.jpg"
+    ]
   },
   {
     "name_user": "Steve",
     "img_user": "assets/people/people-002.png",
-    "img_status": "assets/images/image-010.jpg"
+    "img_status": [
+      "assets/images/image-010.jpg",
+      "assets/images/image-006.jpg"
+    ]
   },
   {
     "name_user": "Steve W.",
     "img_user": "assets/people/people-003.jpg",
-    "img_status": "assets/images/image-003.jpg"
+    "img_status": [
+      "assets/images/image-003.jpg",
+      "assets/images/image-008.jpg",
+      "assets/images/image-002.jpg"
+    ]
   },
   {
     "name_user": "Elon",
     "img_user": "assets/people/people-004.jpg",
-    "img_status": "assets/images/image-005.jpg"
+    "img_status": [
+      "assets/images/image-005.jpg"
+    ]
   },
   {
     "name_user": "Sergey",
     "img_user": "assets/people/people-005.jpg",
-    "img_status": "assets/images/image-004.jpg"
+    "img_status": [
+      "assets/images/image-004.jpg"
+    ]
   },
   {
     "name_user": "Larry P.",
     "img_user": "assets/people/people-006.jpg",
-    "img_status": "assets/images/image-009.jpg"
+    "img_status": [
+      "assets/images/image-009.jpg",
+      "assets/images/image-007.jpg"
+    ]
   },
   {
     "name_user": "Mark",
     "img_user": "assets/people/people-007.jpg",
-    "img_status": "assets/images/image-011.jpg"
+    "img_status": [
+      "assets/images/image-011.jpg"
+    ]
   }
 ]
