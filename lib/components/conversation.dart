@@ -4,31 +4,37 @@ import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
 class Conversation extends StatelessWidget {
-  Widget headerList({@required String text, @required IconData icon}) {
+  Widget headerList({@required String text, @required IconData icon, bool collapse = false}) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
+        15.0,
         10.0,
-        10.0,
-        10.0,
+        20.0,
         15.0,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10.0,
-            ),
-            child: Icon(
-              icon,
-            ),
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                child: Icon(
+                  icon,
+                ),
+              ),
+              Text(
+                text,
+                style: GoogleFonts.istokWeb(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
-          Text(
-            text,
-            style: GoogleFonts.istokWeb(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          (collapse) ? Icon(Icons.keyboard_arrow_up, size: 24.0,) : Container(),
         ],
       ),
     );
@@ -187,7 +193,8 @@ class Conversation extends StatelessWidget {
     currentList.add(
       this.headerList(
         text: "All Chats",
-        icon: Icons.chat_bubble,
+        icon: Icons.chat,
+        collapse: true,
       ),
     );
     for (Map element in chats) {
