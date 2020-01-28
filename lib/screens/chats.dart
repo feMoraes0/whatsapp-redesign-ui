@@ -34,7 +34,7 @@ class ChatsScreen extends StatelessWidget {
                   child: Text(
                     "12",
                     style: GoogleFonts.istokWeb(
-                      fontSize: 14.0,
+                      fontSize: 12.0,
                       color: Colors.white,
                     ),
                   ),
@@ -99,6 +99,13 @@ class ChatsScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: theme.primaryColor,
                       borderRadius: BorderRadius.circular(100.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black38,
+                          offset: Offset(2.0, 3.0),
+                          blurRadius: 4.0,
+                        )
+                      ],
                     ),
                     child: Row(
                       children: <Widget>[
@@ -143,14 +150,25 @@ class ChatsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Color.fromRGBO(247, 255, 0, 1.0,),
-                    radius: 30.0,
+                  Container(
+                    padding: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(247, 255, 0, 1.0,),
+                      borderRadius: BorderRadius.circular(100.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black38,
+                          offset: Offset(2.0, 3.0),
+                          blurRadius: 4.0,
+                        )
+                      ],
+                    ),
                     child: Icon(
-                      Icons.chat,
+                      FontAwesomeIcons.commentDots,
+                      size: 22.0,
                       color: Colors.black,
                     ),
-                  )
+                  ),
                 ],
               ),
             )
