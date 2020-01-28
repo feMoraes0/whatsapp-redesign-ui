@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class StatusBar extends StatefulWidget {
   @override
@@ -33,7 +34,10 @@ class _StatusBarState extends State<StatusBar> {
             padding: const EdgeInsets.only(top: 4.0),
             child: Text(
               "Add",
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w600),
+              style: GoogleFonts.istokWeb(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -49,6 +53,7 @@ class _StatusBarState extends State<StatusBar> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Stack(
             children: <Widget>[
@@ -103,7 +108,10 @@ class _StatusBarState extends State<StatusBar> {
             padding: const EdgeInsets.only(top: 4.0),
             child: Text(
               userName,
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w600),
+              style: GoogleFonts.istokWeb(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -130,7 +138,7 @@ class _StatusBarState extends State<StatusBar> {
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         width: size.width,
-        height: 112.0,
+        height: 117.0,
         child: ListView.builder(
           itemCount: this.status.length + 1,
           scrollDirection: Axis.horizontal,

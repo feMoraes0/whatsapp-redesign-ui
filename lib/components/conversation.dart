@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class Conversation extends StatelessWidget {
   Widget headerList({@required String text, @required IconData icon}) {
@@ -23,7 +24,7 @@ class Conversation extends StatelessWidget {
           ),
           Text(
             text,
-            style: TextStyle(
+            style: GoogleFonts.istokWeb(
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
@@ -87,7 +88,7 @@ class Conversation extends StatelessWidget {
                           backgroundColor: theme.primaryColor,
                           child: Text(
                             element["unread"],
-                            style: TextStyle(
+                            style: GoogleFonts.istokWeb(
                               fontSize: 14.0,
                               color: Colors.white,
                             ),
@@ -104,23 +105,20 @@ class Conversation extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 5.0),
-                  child: Text(
-                    element["user_name"],
-                    style: TextStyle(
-                      fontSize: 19.0,
-                      fontWeight: FontWeight.w600,
-                      color: (element["unread"] != "0")
-                          ? theme.primaryColor
-                          : Colors.black,
-                    ),
+                Text(
+                  element["user_name"],
+                  style: GoogleFonts.istokWeb(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    color: (element["unread"] != "0")
+                        ? theme.primaryColor
+                        : Colors.black,
                   ),
                 ),
                 Text(
                   "Maecenas sed elementum augue.",
-                  style: TextStyle(
-                    fontSize: 17.0,
+                  style: GoogleFonts.istokWeb(
+                    fontSize: 16.0,
                     fontWeight: (element["unread"] != "0")
                         ? FontWeight.w700
                         : FontWeight.w400,
@@ -138,15 +136,17 @@ class Conversation extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 5.0),
                   child: Text(
                     element["date"],
-                    style: TextStyle(
+                    style: GoogleFonts.istokWeb(
                       fontSize: 15.0,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
-                (pinned) ? Icon(
-                  Icons.golf_course,
-                ) : Container(),
+                (pinned)
+                    ? Icon(
+                        Icons.golf_course,
+                      )
+                    : Container(),
               ],
             ),
           )
