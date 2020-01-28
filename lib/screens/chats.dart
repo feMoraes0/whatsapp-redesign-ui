@@ -93,7 +93,7 @@ class ChatsScreen extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.only(right: 15.0),
+                    margin: const EdgeInsets.only(right: 10.0),
                     padding: const EdgeInsets.all(12.0),
                     decoration: BoxDecoration(
                       color: theme.primaryColor,
