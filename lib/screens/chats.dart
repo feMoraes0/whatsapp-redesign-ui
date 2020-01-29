@@ -270,6 +270,7 @@ class ChatsScreen extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Stack(
           children: <Widget>[
             Column(
