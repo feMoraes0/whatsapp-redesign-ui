@@ -1,12 +1,12 @@
-<h1 align="center">Whatsapp Redesign UI</h1>
+<h1 align="center">WhatsApp Redesign UI</h1>
 
 ## Objective
 Practise: flutter knowledges, ability to follow a pre-defined design and how to solve problems during development.
 
-<!-- ## Prints
+## Prints
 <p align="center">
-  <img width="200" src="print.project.screen"/>
-</p> -->
+  <img width="250" src="https://i.pinimg.com/originals/4d/b1/ea/4db1ea9661565b646c6130be53229d96.png"/>
+</p>
 
 <!-- ## Knowledges
 >Explain or list what was used to create this project. -->
